@@ -13,6 +13,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "no-unused-vars": "off",
         "semi": ["error", "always"],
         "quotes": ["error", "single"]
     }
