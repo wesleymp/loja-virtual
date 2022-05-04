@@ -1,0 +1,33 @@
+{
+  "name": "loja-virtual",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest tests --runInBand --forceExit",
+    "test:integration": "jest tests/integration --runInBand --forceExit",
+    "test:unit": "jest tests/unit --runInBand --forceExit",
+    "start": "node src/main/server.js",
+    "dev": "nodemon src/main/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.0.3",
+    "nodemon": "^2.0.16",
+    "sinon": "^13.0.2",
+    "supertest": "^6.2.3"
+  }
+}
