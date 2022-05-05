@@ -1,11 +1,9 @@
-const sinon = require('sinon');
 const { postUserService, checkEmail } = require('../../src/services');
 const { connection } = require('../../src/models/connection');
 const { crypt } = require('../../src/services/helpers/bcrypt');
 
 describe('Service checkEmail', () => {
   const req = {};
-  const res = {};
 
   beforeAll(() => {
     req.body = {
@@ -13,8 +11,6 @@ describe('Service checkEmail', () => {
       password: 'valid_password',
       email: 'valid_email@mail.com',
     };
-    res.status = sinon.stub().returns(res);
-    res.json = sinon.stub().returns(res);
   });
 
   beforeAll(async () => {
@@ -47,12 +43,9 @@ describe('Service checkEmail', () => {
 
 describe('Service postUserService', () => {
   const req = {};
-  const res = {};
 
   beforeAll(() => {
     req.body = {};
-    res.status = sinon.stub().returns(res);
-    res.json = sinon.stub().returns(res);
   });
 
   afterAll(async () => {
