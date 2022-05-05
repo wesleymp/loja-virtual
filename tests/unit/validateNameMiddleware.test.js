@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 const { validateNameMiddleware } = require('../../src/middlewares');
 
-describe('Middleware errorMiddleware', () => {
+describe('Middleware validateNameMiddleware', () => {
   const req = {};
   const res = {};
   const next = sinon.stub();
