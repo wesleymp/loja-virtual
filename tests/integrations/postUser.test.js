@@ -5,7 +5,8 @@ const app = require('../../src/main/app');
 
 describe('Rota [POST] /user', () => {
   afterEach(async () => {
-    (await connection.connect()).query('DELETE FROM "user" WHERE email != $1', ['admin@mail.com']);
+    const conn = await connection.connect();
+    await conn.query('DELETE FROM "user" WHERE email != $1', ['admin@mail.com']);
   });
 
   it('deve retornar um status 400 se não informar um nome', (done) => {
