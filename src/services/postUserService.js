@@ -16,4 +16,4 @@ const postUserService = async (name, password, email) => {
   return { status: 201, message: 'Usuário registrado com sucesso!' };
 };
 
-module.exports = postUserService;
+module.exports = { postUserService, checkEmail };
