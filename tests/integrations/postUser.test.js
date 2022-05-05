@@ -1,6 +1,5 @@
 const request = require('supertest');
 const { connection } = require('../../src/models/connection');
-const { crypt } = require('../../src/services/helpers/bcrypt');
 
 const app = require('../../src/main/app');
 
