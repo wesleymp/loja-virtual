@@ -2,6 +2,7 @@ const { Router } = require('express');
 const {
   homeController,
   postUserController,
+  loginController,
 } = require('../controllers');
 const {
   validateNameMiddleware,
@@ -18,6 +19,12 @@ routers.post(
   validatePasswordMiddleware,
   validateEmailMiddleware,
   postUserController,
+);
+routers.post(
+  '/login',
+  validatePasswordMiddleware,
+  validateEmailMiddleware,
+  loginController,
 );
 
 module.exports = routers;
