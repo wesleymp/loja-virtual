@@ -16,3 +16,10 @@ create table "user"(
 );
 
 insert into "user" ("name", "password", "email", "id_role") values ('admin', '$2b$10$Y3gaw9d4T2z8qQvaRY6GJu.mcycwV4KUmIIjbbYf9j1/6.p1A8rGi', 'admin@mail.com', 1);
+
+create table "product"(
+	"id" serial primary key,
+	"name" VARCHAR(255) not null,
+	"price" DECIMAL(10,2) not null,
+	"image_url" VARCHAR(255) not null
+);
