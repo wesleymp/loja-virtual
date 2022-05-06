@@ -15,27 +15,6 @@ describe('Rota [POST] /login', () => {
     await conn.query('DELETE FROM "user" WHERE email != $1', ['admin@mail.com']);
   });
 
-  it('deve retornar um status 400 se não informar uma senha', (done) => {
-    request(app)
-      .post('/login')
-      .send({
-        email: 'valid_email@mail.com',
-      })
-      .expect(400)
-      .end(done);
-  });
-
-  it('deve retornar um status 400 se informar uma senha menor que 6 caracteres', (done) => {
-    request(app)
-      .post('/login')
-      .send({
-        email: 'valid_email@mail.com',
-        password: '12345',
-      })
-      .expect(400)
-      .end(done);
-  });
-
   it('deve retornar um status 400 se não informar um email', (done) => {
     request(app)
       .post('/login')

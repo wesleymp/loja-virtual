@@ -7,6 +7,7 @@
     "test": "set NODE_ENV=test&& jest tests --runInBand --forceExit",
     "test:integration": "set NODE_ENV=test&& jest tests/integration --runInBand --forceExit",
     "test:unit": "set NODE_ENV=test&& jest tests/unit --runInBand --forceExit",
+    "test:coverage": "set NODE_ENV=test&& jest tests/unit --coverage --runInBand --forceExit",
     "start": "node src/main/server.js",
     "dev": "nodemon src/main/server.js"
   },
