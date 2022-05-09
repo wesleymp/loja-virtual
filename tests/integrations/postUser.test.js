@@ -1,12 +1,12 @@
+const sinon = require('sinon');
 const request = require('supertest');
-const { connection } = require('../../src/models/connection');
+const models = require('../../src/models');
 
 const app = require('../../src/main/app');
 
 describe('Rota [POST] /user', () => {
-  afterEach(async () => {
-    const conn = await connection.connect();
-    await conn.query('DELETE FROM "user" WHERE email != $1', ['admin@mail.com']);
+  afterEach(() => {
+    sinon.restore();
   });
 
   it('deve retornar um status 400 se não informar um nome', (done) => {
@@ -79,6 +79,8 @@ describe('Rota [POST] /user', () => {
   });
 
   it('deve retornar um status 201 todas informações forem enviadas corretamente', (done) => {
+    sinon.stub(models, 'getUserModel').resolves({ rowCount: 0 });
+    sinon.stub(models, 'postUserModel').resolves(true);
     request(app)
       .post('/user')
       .send({

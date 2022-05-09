@@ -1,18 +1,19 @@
+const sinon = require('sinon');
 const request = require('supertest');
-const { connection } = require('../../src/models/connection');
 const app = require('../../src/main/app');
+const models = require('../../src/models');
 const { crypt } = require('../../src/services/helpers/bcrypt');
 
 describe('Rota [POST] /login', () => {
-  beforeAll(async () => {
-    const hashPassword = crypt('valid_password');
-    const conn = await connection.connect();
-    await conn.query(`INSERT INTO "user" ("name", "password", "email") VALUES ('valid_name', '${hashPassword}', 'valid_email@mail.com')`);
-  });
+  const dataModels = {
+    id: 1,
+    name: 'valid_name',
+    password: crypt('valid_password'),
+    email: 'valid_email@mail.com',
+  };
 
-  afterAll(async () => {
-    const conn = await connection.connect();
-    await conn.query('DELETE FROM "user" WHERE email != $1', ['admin@mail.com']);
+  afterEach(() => {
+    sinon.restore();
   });
 
   it('deve retornar um status 400 se não informar um email', (done) => {
@@ -37,6 +38,7 @@ describe('Rota [POST] /login', () => {
   });
 
   it('deve retornar um 200 caso o campo email/senha informado for válido', (done) => {
+    sinon.stub(models, 'getUserModel').resolves({ rows: [dataModels], rowCount: 1 });
     const body = {
       email: 'valid_email@mail.com',
       password: 'valid_password',
@@ -49,6 +51,7 @@ describe('Rota [POST] /login', () => {
   });
 
   it('deve retornar um token caso o campo email/senha informado for válido', (done) => {
+    sinon.stub(models, 'getUserModel').resolves({ rows: [dataModels], rowCount: 1 });
     const body = {
       email: 'valid_email@mail.com',
       password: 'valid_password',
