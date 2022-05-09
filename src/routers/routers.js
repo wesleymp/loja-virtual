@@ -1,41 +1,29 @@
 const { Router } = require('express');
 const upload = require('../configs/multer');
-
-const {
-  homeController,
-  postUserController,
-  loginController,
-  postProductController,
-} = require('../controllers');
-const {
-  validateNameMiddleware,
-  validatePasswordMiddleware,
-  validateEmailMiddleware,
-  authMiddleware,
-  adminMiddleware,
-} = require('../middlewares');
+const controllers = require('../controllers');
+const middlewares = require('../middlewares');
 
 const routers = Router();
 
-routers.get('/', homeController);
+routers.get('/', controllers.homeController);
 routers.post(
   '/user',
-  validateNameMiddleware,
-  validatePasswordMiddleware,
-  validateEmailMiddleware,
-  postUserController,
+  middlewares.validateNameMiddleware,
+  middlewares.validatePasswordMiddleware,
+  middlewares.validateEmailMiddleware,
+  controllers.postUserController,
 );
 routers.post(
   '/login',
-  validateEmailMiddleware,
-  loginController,
+  middlewares.validateEmailMiddleware,
+  controllers.loginController,
 );
 routers.post(
   '/product',
-  adminMiddleware,
-  authMiddleware,
+  middlewares.adminMiddleware,
+  middlewares.authMiddleware,
   upload.single('image'),
-  postProductController,
+  controllers.postProductController,
 );
 
 module.exports = routers;
