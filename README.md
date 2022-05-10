@@ -204,3 +204,19 @@ _Response Body:_
   ]
 }
 ```
+
+Perfil [GET]: `/profile`
+
+_Response Body:_
+
+```json
+{
+  "data": {
+    "id_user": 2,
+    "user_name": "example",
+    "email": "example@mail.com",
+    "coin_quantity": "10.00",
+    "id_role": 2
+  }
+}
+```
