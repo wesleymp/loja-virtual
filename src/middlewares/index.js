@@ -4,6 +4,8 @@ const validatePasswordMiddleware = require('./validatePasswordMiddleware');
 const validateEmailMiddleware = require('./validateEmailMiddleware');
 const authMiddleware = require('./authMiddleware');
 const adminMiddleware = require('./adminMiddleware');
+const validateIdMiddleware = require('./validateIdMiddleware');
+const validateQuantityMiddleware = require('./validateQuantityMiddleware');
 
 module.exports = {
   errorMiddleware,
@@ -12,4 +14,6 @@ module.exports = {
   validateEmailMiddleware,
   authMiddleware,
   adminMiddleware,
+  validateIdMiddleware,
+  validateQuantityMiddleware,
 };

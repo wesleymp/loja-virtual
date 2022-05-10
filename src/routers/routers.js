@@ -25,5 +25,13 @@ routers.post(
   upload.single('image'),
   controllers.postProductController,
 );
+routers.post(
+  '/management',
+  middlewares.adminMiddleware,
+  middlewares.authMiddleware,
+  middlewares.validateIdMiddleware,
+  middlewares.validateQuantityMiddleware,
+  controllers.postManagementController,
+);
 
 module.exports = routers;
