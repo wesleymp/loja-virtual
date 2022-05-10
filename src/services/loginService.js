@@ -8,7 +8,10 @@ const loginService = async (email, password) => {
   if (rowCount === 0 || !compare(password, rows[0].password)) {
     throw error(400, 'Email ou Senha incorretos.');
   }
-  return { status: 200, token: genereteJwt({ id: rows[0].id, id_role: rows[0].id_role }) };
+  return {
+    status: 200,
+    token: genereteJwt({ id_user: rows[0].id_user, id_role: rows[0].id_role }),
+  };
 };
 
 module.exports = loginService;
