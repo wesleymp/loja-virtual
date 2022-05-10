@@ -20,15 +20,15 @@ routers.post(
 );
 routers.post(
   '/product',
-  middlewares.adminMiddleware,
   middlewares.authMiddleware,
+  middlewares.adminMiddleware,
   upload.single('image'),
   controllers.postProductController,
 );
 routers.post(
   '/management',
-  middlewares.adminMiddleware,
   middlewares.authMiddleware,
+  middlewares.adminMiddleware,
   middlewares.validateIdMiddleware,
   middlewares.validateQuantityMiddleware,
   controllers.postManagementController,
