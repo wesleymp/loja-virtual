@@ -6,13 +6,7 @@ describe('Middleware authMiddleware', () => {
   const req = {};
   const res = {};
   const next = sinon.stub();
-
-  const data = {
-    id: 2,
-    id_role: 2,
-  };
-
-  const token = genereteJwt(data);
+  const token = genereteJwt({ id: 2, id_role: 2 });
 
   beforeEach(() => {
     res.status = sinon.stub().returns(res);
@@ -32,25 +26,19 @@ describe('Middleware authMiddleware', () => {
   });
 
   it('deve retornar um status 401 quando for enviado um token inválido', () => {
-    req.headers = {
-      authorization: 'invalid_token',
-    };
+    req.headers = { authorization: 'invalid_token' };
     authMiddleware(req, res, next);
     expect(res.status.calledWith(401)).toBe(true);
   });
 
   it('deve retornar uma mensagem { message: "Token inválido." } quando for enviado um token inválido', () => {
-    req.headers = {
-      authorization: 'invalid_token',
-    };
+    req.headers = { authorization: 'invalid_token' };
     authMiddleware(req, res, next);
     expect(res.json.calledWith({ message: 'Token inválido.' })).toBe(true);
   });
 
   it('deve retornar a função next caso o token informado estiver correto', () => {
-    req.headers = {
-      authorization: token,
-    };
+    req.headers = { authorization: token };
     authMiddleware(req, res, next);
     sinon.assert.calledOnce(next);
   });
