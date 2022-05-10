@@ -11,6 +11,7 @@ create table "user"(
 	"name" VARCHAR(255) not null,
 	"password" VARCHAR(255) not null,
 	"email" VARCHAR(255) unique not null,
+	"coin_quantity" DECIMAL(10,2) default 00.00 not null,
 	"id_role" int default 2,
 	foreign key ("id_role") references "role" ("id")
 );
