@@ -3,6 +3,7 @@ const loginService = require('./loginService');
 const postProductService = require('./postProductService');
 const postManagementService = require('./postManagementService');
 const getManagementService = require('./getManagementService');
+const getProductService = require('./getProductService');
 
 module.exports = {
   postUserService,
@@ -11,4 +12,5 @@ module.exports = {
   postProductService,
   postManagementService,
   getManagementService,
+  getProductService,
 };

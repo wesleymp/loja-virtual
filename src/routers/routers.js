@@ -39,5 +39,10 @@ routers.get(
   middlewares.adminMiddleware,
   controllers.getManagementController,
 );
+routers.get(
+  '/product',
+  middlewares.authMiddleware,
+  controllers.getProductController,
+);
 
 module.exports = routers;

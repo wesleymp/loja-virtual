@@ -4,6 +4,7 @@ const loginController = require('./loginController');
 const postProductController = require('./postProductController');
 const postManagementController = require('./postManagementController');
 const getManagementController = require('./getManagementController');
+const getProductController = require('./getProductController');
 
 module.exports = {
   homeController,
@@ -12,4 +13,5 @@ module.exports = {
   postProductController,
   postManagementController,
   getManagementController,
+  getProductController,
 };
