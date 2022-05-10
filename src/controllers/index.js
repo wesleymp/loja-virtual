@@ -5,6 +5,7 @@ const postProductController = require('./postProductController');
 const postManagementController = require('./postManagementController');
 const getManagementController = require('./getManagementController');
 const getProductController = require('./getProductController');
+const profileController = require('./profileController');
 
 module.exports = {
   homeController,
@@ -14,4 +15,5 @@ module.exports = {
   postManagementController,
   getManagementController,
   getProductController,
+  profileController,
 };

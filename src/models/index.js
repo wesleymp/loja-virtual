@@ -4,6 +4,7 @@ const postProductModel = require('./postProductModel');
 const postManagementModel = require('./postManagementModel');
 const getManagementModel = require('./getManagementModel');
 const getProductModel = require('./getProductModel');
+const profileModel = require('./profileModel');
 
 module.exports = {
   postUserModel,
@@ -12,4 +13,5 @@ module.exports = {
   postManagementModel,
   getManagementModel,
   getProductModel,
+  profileModel,
 };

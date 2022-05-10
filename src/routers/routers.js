@@ -44,5 +44,10 @@ routers.get(
   middlewares.authMiddleware,
   controllers.getProductController,
 );
+routers.get(
+  '/profile',
+  middlewares.authMiddleware,
+  controllers.profileController,
+);
 
 module.exports = routers;
