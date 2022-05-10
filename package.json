@@ -8,7 +8,7 @@
     "test:integration": "jest tests/integration --runInBand --forceExit",
     "test:unit": "jest tests/unit --runInBand --forceExit",
     "test:coverage": "jest tests/unit --coverage --runInBand --forceExit",
-    "start": "node src/main/server.js",
+    "start": "pm2-runtime start ecosystem.config.yml",
     "dev": "nodemon src/main/server.js"
   },
   "keywords": [],
@@ -22,6 +22,7 @@
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.4",
     "pg": "^8.7.3",
+    "pm2": "^5.2.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {
