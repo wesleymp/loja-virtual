@@ -35,7 +35,7 @@ describe('Middleware validateIdMiddleware', () => {
     expect(res.json.calledWith({ message: 'Id não informado.' })).toBe(true);
   });
 
-  it('deve retornar a função next caso nome informado estiver correto', () => {
+  it('deve retornar a função next caso id informado estiver correto', () => {
     req.body.id = 'invalid@mail.com';
     validateIdMiddleware(req, res, next);
     sinon.assert.calledOnce(next);
