@@ -3,6 +3,7 @@ const postUserController = require('./postUserController');
 const loginController = require('./loginController');
 const postProductController = require('./postProductController');
 const postManagementController = require('./postManagementController');
+const getManagementController = require('./getManagementController');
 
 module.exports = {
   homeController,
@@ -10,4 +11,5 @@ module.exports = {
   loginController,
   postProductController,
   postManagementController,
+  getManagementController,
 };

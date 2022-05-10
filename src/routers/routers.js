@@ -33,5 +33,11 @@ routers.post(
   middlewares.validateQuantityMiddleware,
   controllers.postManagementController,
 );
+routers.get(
+  '/management',
+  middlewares.authMiddleware,
+  middlewares.adminMiddleware,
+  controllers.getManagementController,
+);
 
 module.exports = routers;
