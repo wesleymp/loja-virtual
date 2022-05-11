@@ -1,3 +1,5 @@
 apps:
   - name: app
     script: ./src/main/server.js
+    exec_mode: cluster
+    instances: 4
