@@ -1,16 +1,13 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-const database = {
-  host: process.env.DATABASE_HOST,
-};
-
-if (process.env.NODE_ENV === 'test') {
-  database.host = process.env.DATABASE_HOST_TEST;
-}
-
 const connection = new Pool({
-  connectionString: database.host,
+  connectionString: process.env.DATABASE_HOST,
+  pool: { min: 0, max: 10 },
+});
+
+connection.on('error', (err) => {
+  console.error('DB error', err);
 });
 
 module.exports = {
