@@ -44,7 +44,7 @@ PORT=3001
 
 BASE_URL=http://localhost:3001
 
-DATABASE_HOST=postgres://root:root@localhost:5432/store
+DATABASE_URL=postgres://root:root@localhost:5432/store
 
 SECRET_KEY=123
 
@@ -67,7 +67,7 @@ PORT=3001
 
 BASE_URL=http://localhost:3001
 
-DATABASE_HOST=postgres://docker:docker@loja-virtual-db-1:5432/store
+DATABASE_URL=postgres://docker:docker@loja-virtual-db-1:5432/store
 
 SECRET_KEY=123
 
@@ -77,7 +77,7 @@ Utilize o comando `docker-compose up --build`
 
 # Testes
 
-Caso esteja rodando a aplicação no Docker entre primeiro no container `docker exec -it loja-virtual-loja-1 bash` e rode um dos comando a baixo:
+Caso esteja rodando a aplicação no Docker entre primeiro no container `docker exec -it loja-virtual_loja_1 bash` e rode um dos comando a baixo:
 
 - `npm test` para rodar todos os testes
 - `npm run test:unit` para rodar os testes unitários
