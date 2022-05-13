@@ -106,6 +106,15 @@ Após criar o banco de dados clique em importar e escolhe o arquivo `store.sql` 
 
 Todas as rotas exceto `/user` e `/login`, precisam estar autenticados para acessar.
 
+Usuário para de administrador já registrado para poder gerenciar usuários e adicionar produtos.
+
+```json
+{
+  "email": "admin@mail.com",
+  "password": "admin"
+}
+```
+
 Registro [POST]: `/user`
 
 _Request Body:_
