@@ -1,8 +1,7 @@
 const { connection } = require('./connection');
 
 const getUserModel = async (email) => {
-  const conn = await connection.connect();
-  const query = await conn.query(
+  const query = await connection.query(
     'SELECT * FROM "user" WHERE email = $1 LIMIT 1',
     [email],
   );

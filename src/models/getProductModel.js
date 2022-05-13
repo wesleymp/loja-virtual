@@ -1,8 +1,7 @@
 const { connection } = require('./connection');
 
 const getProductModel = async () => {
-  const conn = await connection.connect();
-  const productData = await conn.query(
+  const productData = await connection.query(
     'SELECT * FROM "product"',
   );
   return productData;

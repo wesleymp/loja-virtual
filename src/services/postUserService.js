@@ -3,8 +3,8 @@ const error = require('./helpers/error');
 const { crypt } = require('./helpers/bcrypt');
 
 const checkEmail = async (email) => {
-  const { rowCount } = await models.getUserModel(email);
-  if (rowCount > 0) {
+  const userData = await models.getUserModel(email);
+  if (userData.length > 0) {
     throw error(400, 'Email já está em uso.');
   }
 };
