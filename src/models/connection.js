@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const config = {
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+  // ssl: { rejectUnauthorized: false },
 };
 
 const connection = pgp(config);
