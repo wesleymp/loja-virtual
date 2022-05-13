@@ -20,7 +20,7 @@ describe('Rota [GET] /profile', () => {
   });
 
   it('deve retornar um status 200 se o usuário estiver autenticado', (done) => {
-    sinon.stub(models, 'profileModel').resolves({ rows: [profile] });
+    sinon.stub(models, 'profileModel').resolves([profile]);
     request(app)
       .get('/profile')
       .set('Authorization', token)

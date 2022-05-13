@@ -19,7 +19,7 @@ describe('Service loginService', () => {
   });
 
   it('deve retornar um status code 400 se o email já existir', async () => {
-    sinon.stub(models, 'getUserModel').resolves({ rowCount: 0 });
+    sinon.stub(models, 'getUserModel').resolves([]);
     try {
       await loginService(req.body.email, req.body.password);
     } catch (error) {
@@ -28,7 +28,7 @@ describe('Service loginService', () => {
   });
 
   it('deve retornar um status code 400 se a senha for incorreta', async () => {
-    sinon.stub(models, 'getUserModel').resolves({ rowCount: 0 });
+    sinon.stub(models, 'getUserModel').resolves([]);
     try {
       await loginService(req.body.email, req.body.password);
     } catch (error) {
@@ -43,7 +43,7 @@ describe('Service loginService', () => {
       password: crypt('valid_password'),
       email: 'valid_email@mail.com',
     };
-    sinon.stub(models, 'getUserModel').resolves({ rows: [dataModels], rowCount: 1 });
+    sinon.stub(models, 'getUserModel').resolves([dataModels]);
     const dataRegister = await loginService(req.body.email, req.body.password);
     expect(dataRegister).toHaveProperty('status');
     expect(dataRegister).toHaveProperty('token');

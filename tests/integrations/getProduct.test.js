@@ -24,7 +24,7 @@ describe('Rota [GET] /product', () => {
   });
 
   it('deve retornar um status 404 se não existir produtos cadastrados', (done) => {
-    sinon.stub(models, 'getProductModel').resolves({ rowCount: 0, rows: [] });
+    sinon.stub(models, 'getProductModel').resolves([]);
     request(app)
       .get('/product')
       .set('Authorization', token)
@@ -33,7 +33,7 @@ describe('Rota [GET] /product', () => {
   });
 
   it('deve retornar um status 200 se encontrar produtos cadastrados', (done) => {
-    sinon.stub(models, 'getProductModel').resolves({ rowCount: 3, rows: products });
+    sinon.stub(models, 'getProductModel').resolves([products]);
     request(app)
       .get('/product')
       .set('Authorization', token)

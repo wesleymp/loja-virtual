@@ -38,7 +38,7 @@ describe('Rota [POST] /login', () => {
   });
 
   it('deve retornar um 200 caso o campo email/senha informado for válido', (done) => {
-    sinon.stub(models, 'getUserModel').resolves({ rows: [dataModels], rowCount: 1 });
+    sinon.stub(models, 'getUserModel').resolves([dataModels]);
     const body = {
       email: 'valid_email@mail.com',
       password: 'valid_password',
@@ -51,7 +51,7 @@ describe('Rota [POST] /login', () => {
   });
 
   it('deve retornar um token caso o campo email/senha informado for válido', (done) => {
-    sinon.stub(models, 'getUserModel').resolves({ rows: [dataModels], rowCount: 1 });
+    sinon.stub(models, 'getUserModel').resolves([dataModels]);
     const body = {
       email: 'valid_email@mail.com',
       password: 'valid_password',

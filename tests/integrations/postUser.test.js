@@ -79,7 +79,7 @@ describe('Rota [POST] /user', () => {
   });
 
   it('deve retornar um status 201 todas informações forem enviadas corretamente', (done) => {
-    sinon.stub(models, 'getUserModel').resolves({ rowCount: 0 });
+    sinon.stub(models, 'getUserModel').resolves([]);
     sinon.stub(models, 'postUserModel').resolves(true);
     request(app)
       .post('/user')

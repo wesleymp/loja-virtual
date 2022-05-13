@@ -10,19 +10,19 @@ describe('Service getManagementService', () => {
   });
 
   it('deve retornar um status code 200 caso existir usuários cadastrados', async () => {
-    sinon.stub(models, 'getManagementModel').resolves({ rowCount: 2, rows: users });
+    sinon.stub(models, 'getManagementModel').resolves(users);
     const dataRegister = await services.getManagementService();
     expect(dataRegister.status).toBe(200);
   });
 
   it('deve retornar um json com os dados do usuário caso existir usuários cadastrados', async () => {
-    sinon.stub(models, 'getManagementModel').resolves({ rowCount: 2, rows: users });
+    sinon.stub(models, 'getManagementModel').resolves(users);
     const dataRegister = await services.getManagementService();
     expect(dataRegister.data).toMatchObject(users);
   });
 
   it('deve retornar um status code 404 caso não existir usuários cadastrados', async () => {
-    sinon.stub(models, 'getManagementModel').resolves({ rowCount: 0, rows: [] });
+    sinon.stub(models, 'getManagementModel').resolves([]);
     try {
       await services.getManagementService();
     } catch (error) {
@@ -31,7 +31,7 @@ describe('Service getManagementService', () => {
   });
 
   it('deve retornar uma mensagem { message: "Nenhum usuário cadastrado" } caso não existir usuários cadastrados', async () => {
-    sinon.stub(models, 'getManagementModel').resolves({ rowCount: 0, rows: [] });
+    sinon.stub(models, 'getManagementModel').resolves([]);
     try {
       await services.getManagementService();
     } catch (error) {

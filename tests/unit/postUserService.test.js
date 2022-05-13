@@ -18,7 +18,7 @@ describe('Service checkEmail', () => {
   });
 
   it('deve retornar um status code 400 se o email informado já estiver cadastrado', async () => {
-    sinon.stub(models, 'getUserModel').resolves({ rowCount: 1 });
+    sinon.stub(models, 'getUserModel').resolves([1, 2, 3]);
     try {
       await services.checkEmail(req.body.email);
     } catch (error) {
@@ -27,7 +27,7 @@ describe('Service checkEmail', () => {
   });
 
   it('deve retornar uma mensagem "Email já está em uso." se o email informado já estiver cadastrado', async () => {
-    sinon.stub(models, 'getUserModel').resolves({ rowCount: 1 });
+    sinon.stub(models, 'getUserModel').resolves([1, 2, 3]);
     try {
       await services.checkEmail(req.body.email);
     } catch (error) {
@@ -52,7 +52,7 @@ describe('Service postUserService', () => {
   });
 
   it('deve retornar um status code 201 se os dados de registros forem informados corretamente', async () => {
-    sinon.stub(models, 'getUserModel').resolves({ rowCount: 0 });
+    sinon.stub(models, 'getUserModel').resolves([]);
     sinon.stub(models, 'postUserModel').resolves(true);
     const dataRegister = await services.postUserService(
       req.body.name,
@@ -63,7 +63,7 @@ describe('Service postUserService', () => {
   });
 
   it('deve retornar um objeto que contenha as chaves status e message se os dados de registros forem informados corretamente', async () => {
-    sinon.stub(models, 'getUserModel').resolves({ rowCount: 0 });
+    sinon.stub(models, 'getUserModel').resolves([]);
     sinon.stub(models, 'postUserModel').resolves(true);
     const dataRegister = await services.postUserService(
       req.body.name,

@@ -32,7 +32,7 @@ describe('Rota [GET] /management', () => {
   });
 
   it('deve retornar um status 404 se não existir usuários cadastrados', (done) => {
-    sinon.stub(models, 'getManagementModel').resolves({ rowCount: 0, rows: [] });
+    sinon.stub(models, 'getManagementModel').resolves([]);
     request(app)
       .get('/management')
       .set('Authorization', token)
@@ -41,7 +41,7 @@ describe('Rota [GET] /management', () => {
   });
 
   it('deve retornar um status 200 se encontrar usuários cadastrados', (done) => {
-    sinon.stub(models, 'getManagementModel').resolves({ rowCount: 2, rows: users });
+    sinon.stub(models, 'getManagementModel').resolves([users]);
     request(app)
       .get('/management')
       .set('Authorization', token)
